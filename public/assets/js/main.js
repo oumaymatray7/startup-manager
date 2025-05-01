@@ -249,3 +249,4 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+AOS.init();
