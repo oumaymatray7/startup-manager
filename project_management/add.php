@@ -39,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $due_date = $_POST['due_date'][$index];
 
                 if (!empty($task_title) && !empty($due_date)) {
-                    $stmt = $pdo->prepare('INSERT INTO tasks (title, assigned_to, due_date, project_id) VALUES (?, ?, ?, ?)');
-                    $stmt->execute([$task_title, $assigned_to, $due_date, $project_id]);
+                    $stmt = $pdo->prepare('INSERT INTO tasks (title, assigned_to, due_date, project_id, status) VALUES (?, ?, ?, ?, ?)');
+$stmt->execute([$task_title, $assigned_to, $due_date, $project_id, 'En cours']);
+
                 }
             }
         }

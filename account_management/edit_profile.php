@@ -29,16 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
         $file_extension = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
 
-        // Vérifier et créer le dossier si besoin
+        // Dossier d'upload correct
         $upload_dir = '../assets/img/profiles/';
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0777, true);
         }
 
         if (in_array($file_extension, $allowed_extensions)) {
-            // Limite de taille 2 Mo
             if ($_FILES['photo']['size'] <= 2 * 1024 * 1024) {
-                $photo_name = uniqid() . '.' . $file_extension;
+                $photo_name = uniqid('user_', true) . '.' . $file_extension;
                 $photo_path = $upload_dir . $photo_name;
 
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $photo_path)) {
@@ -55,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (empty($error)) {
-        // Mettre à jour l'utilisateur
         $stmt = $pdo->prepare('UPDATE users SET email = ?, phone = ?, photo = ? WHERE id = ?');
         $stmt->execute([$email, $phone, $photo, $_SESSION['user_id']]);
 
@@ -98,8 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="mb-3">
         <label>Photo de Profil (optionnel)</label><br>
         <div class="text-center mb-3">
-            <?php if (!empty($user['photo'])) : ?>
-                <img src="../assets/img/profiles/<?php echo htmlspecialchars($user['photo']); ?>" alt="Photo actuelle" width="100" class="rounded-circle">
+            <?php if (!empty($user['photo']) && file_exists('../assets/img/profiles/' . $user['photo'])) : ?>
+                <img src="../assets/img/profiles/<?php echo htmlspecialchars($user['photo']); ?>?v=<?php echo time(); ?>" alt="Photo actuelle" width="100" class="rounded-circle">
             <?php else : ?>
                 <img src="../assets/img/profiles/default.png" alt="Photo par défaut" width="100" class="rounded-circle">
             <?php endif; ?>
