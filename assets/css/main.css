@@ -357,4 +357,56 @@ a:hover {
   .task-item:hover .status-controls {
     opacity: 1;
   }
-
+  .project-table-container {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    border-left: 6px solid #1c1f3f;
+  }
+  
+  .project-table-container table thead {
+    background-color: #1c1f3f;
+    color: white;
+    font-size: 15px;
+  }
+  
+  .project-table-container table tbody tr:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .project-table-container .btn {
+    border-radius: 30px;
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .project-table-container .btn-warning {
+    background-color: #facc15;
+    border: none;
+    color: #1a1a1a;
+  }
+  .project-table-container .btn-warning:hover {
+    background-color: #eab308;
+    color: white;
+  }
+  
+  .project-table-container .btn-danger {
+    background-color: #ef4444;
+    border: none;
+    color: white;
+  }
+  .project-table-container .btn-danger:hover {
+    background-color: #dc2626;
+  }
+  
+  .project-table-container .btn-info {
+    background-color: #1c1f3f;
+    border: none;
+    color: white;
+  }
+  .project-table-container .btn-info:hover {
+    background-color: #111827;
+  }
+  

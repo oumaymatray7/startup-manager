@@ -48,6 +48,7 @@ $motivation = $encouragements[array_rand($encouragements)];
     <h1>Bienvenue 👨‍💻 <?= htmlspecialchars($_SESSION['username'] ?? 'Employé'); ?></h1>
     <a href="../auth/logout.php" class="btn btn-danger">Déconnexion</a>
 </div>
+<?php include 'employee_stats.php'; ?>
 
 <!-- ✅ Encouragement du jour -->
 <div class="alert alert-info shadow-sm text-center fs-6 fw-semibold">

@@ -1,0 +1,555 @@
+/*--------------------------------------------------------------
+# Font & Color Variables
+--------------------------------------------------------------*/
+:root {
+    --admin-bg: #f4f6f9;
+    --admin-sidebar: #1c1f3f;
+    --admin-primary: #5d5fef;
+    --admin-light: #ffffff;
+    --admin-text: #1f2937;
+    --admin-muted: #9ca3af;
+  
+    --success-color: #22c55e;
+    --warning-color: #facc15;
+    --info-color: #38bdf8;
+    --danger-color: #ef4444;
+  
+    --default-font: "Inter", sans-serif;
+    --heading-font: "Poppins", sans-serif;
+  
+    --background-color: #f7f8fa;
+    --surface-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --border-color: #e5e7eb;
+  }
+  
+  /*--------------------------------------------------------------
+  # Base Styling
+  --------------------------------------------------------------*/
+  body {
+    background-color: var(--background-color);
+    font-family: var(--default-font);
+    color: var(--admin-text);
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: var(--admin-primary);
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  a:hover {
+    color: #4338ca;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: var(--heading-font);
+    color: var(--admin-text);
+  }
+  
+  /*--------------------------------------------------------------
+  # Sidebar
+  --------------------------------------------------------------*/
+  .sidebar {
+    background-color: var(--admin-sidebar);
+    color: var(--admin-light);
+    min-height: 100vh;
+    padding-top: 20px;
+  }
+  
+  .sidebar a {
+    color: var(--admin-light);
+    display: block;
+    padding: 12px 20px;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover,
+  .sidebar a.active {
+    background-color: var(--admin-primary);
+    color: #ffffff;
+    border-radius: 6px;
+  }
+  
+  /*--------------------------------------------------------------
+  # Cards
+  --------------------------------------------------------------*/
+  .card {
+    border: none;
+    border-radius: 12px;
+    background-color: var(--surface-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .card-header.bg-primary {
+    background-color: var(--admin-primary);
+    color: white;
+  }
+  
+  .card-header.bg-success {
+    background-color: var(--success-color);
+    color: white;
+  }
+  
+  .card-header.bg-warning {
+    background-color: var(--warning-color);
+    color: #1f2937;
+  }
+  
+  .card-header.bg-info {
+    background-color: var(--info-color);
+    color: white;
+  }
+  
+  .card-body {
+    padding: 30px;
+    text-align: center;
+  }
+  
+  /*--------------------------------------------------------------
+  # Buttons
+  --------------------------------------------------------------*/
+  .btn {
+    border-radius: 30px;
+    font-weight: 600;
+    padding: 10px 24px;
+  }
+  
+  .btn-outline-primary {
+    border-color: var(--admin-primary);
+    color: var(--admin-primary);
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: var(--admin-primary);
+    color: white;
+  }
+  
+  .btn-outline-success {
+    border-color: var(--success-color);
+    color: var(--success-color);
+  }
+  
+  .btn-outline-success:hover {
+    background-color: var(--success-color);
+    color: white;
+  }
+  
+  .btn-outline-warning {
+    border-color: var(--warning-color);
+    color: var(--warning-color);
+  }
+  
+  .btn-outline-warning:hover {
+    background-color: var(--warning-color);
+    color: #1f2937;
+  }
+  
+  .btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #dc2626;
+  }
+  
+  /*--------------------------------------------------------------
+  # Table
+  --------------------------------------------------------------*/
+  .table {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table thead {
+    background-color: #f1f5f9;
+    color: #374151;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  /*--------------------------------------------------------------
+  # Custom Utilities
+  --------------------------------------------------------------*/
+  .shadow-sm {
+    box-shadow: 0 4px 8px var(--shadow-color);
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .mb-0 {
+    margin-bottom: 0 !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .mt-3 {
+    margin-top: 1rem !important;
+  }
+  
+  .mt-5 {
+    margin-top: 3rem !important;
+  }
+  
+  .w-100 {
+    width: 100% !important;
+  }
+  
+  /*--------------------------------------------------------------
+  # Responsive
+  --------------------------------------------------------------*/
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 22px;
+    }
+  
+    .btn {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  .contact-messages-box {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-top: 40px;
+    border-left: 6px solid #1c1f3f;
+  }
+  
+  .contact-messages-box .header {
+    background-color: #1c1f3f;
+    color: white;
+    padding: 20px 30px;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .contact-messages-box .table-container {
+    padding: 20px 30px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .contact-messages-box th,
+  .contact-messages-box td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    vertical-align: top;
+    color: #1f2937;
+  }
+  
+  .contact-messages-box tbody tr:hover {
+    background-color: #f3f4f6;
+  }
+  .employee-table-container {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    border-left: 6px solid #1c1f3f;
+  }
+  
+  .employee-table-container table thead {
+    background-color: #1c1f3f;
+    color: white;
+    font-size: 15px;
+  }
+  
+  .employee-table-container table tbody tr:hover {
+    background-color: #f1f5f9;
+  }
+  
+  .employee-table-container .btn {
+    border-radius: 30px;
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .employee-table-container .btn-warning {
+    background-color: #facc15;
+    border: none;
+    color: #1a1a1a;
+  }
+  
+  .employee-table-container .btn-warning:hover {
+    background-color: #eab308;
+    color: white;
+  }
+  
+  .employee-table-container .btn-danger {
+    background-color: #ef4444;
+    border: none;
+    color: white;
+  }
+  
+  .employee-table-container .btn-danger:hover {
+    background-color: #dc2626;
+  }
+  
+  .project-form-box {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    margin-bottom: 40px;
+    border-left: 6px solid #1c1f3f;
+  }
+  
+  .project-form-box h5 {
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #1c1f3f;
+  }
+  
+  .task-item {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #facc15;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .task-item label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1f2937;
+  }
+  
+  .task-item input,
+  .task-item select,
+  .task-item textarea {
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  
+  .btn-success {
+    border-radius: 30px;
+    font-weight: 600;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  /* === BOUTONS STYLISÉS === */
+.btn {
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Bouton principal : thème StartUp Manager */
+  .btn-primary {
+    background-color: #1c1f3f;
+    border-color: #1c1f3f;
+    color: white;
+  }
+  .btn-primary:hover {
+    background-color: #111627;
+    border-color: #111627;
+  }
+  
+  /* Bouton secondaire clair */
+  .btn-outline-dark {
+    border-color: #1c1f3f;
+    color: #1c1f3f;
+  }
+  .btn-outline-dark:hover {
+    background-color: #1c1f3f;
+    color: white;
+  }
+  
+  /* Bouton succès */
+  .btn-success {
+    background-color: #22c55e;
+    border-color: #22c55e;
+    color: white;
+  }
+  .btn-success:hover {
+    background-color: #16a34a;
+    border-color: #16a34a;
+  }
+  
+  /* Bouton attention */
+  .btn-warning {
+    background-color: #facc15;
+    border-color: #facc15;
+    color: #1f2937;
+  }
+  .btn-warning:hover {
+    background-color: #eab308;
+    color: white;
+  }
+  
+  /* Bouton danger */
+  .btn-danger {
+    background-color: #ef4444;
+    border-color: #ef4444;
+    color: white;
+  }
+  .btn-danger:hover {
+    background-color: #dc2626;
+    border-color: #dc2626;
+  }
+  
+  /* Bouton info (si utilisé ailleurs) */
+  .btn-info {
+    background-color: #38bdf8;
+    border-color: #38bdf8;
+    color: white;
+  }
+  .btn-info:hover {
+    background-color: #0ea5e9;
+  }
+  .profile-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    border-left: 6px solid #1c1f3f;
+  }
+  
+  .profile-card .card-header {
+    background-color: #1c1f3f;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .profile-card .list-group-item {
+    font-size: 15px;
+    padding: 14px 20px;
+  }
+  
+  .profile-card img {
+    border: 4px solid #e5e7eb;
+    object-fit: cover;
+  }
+  
+  /* Boutons profil */
+  .profile-actions .btn {
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+  .edit-form-container {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 30px;
+    border-left: 6px solid #1c1f3f;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+  }
+  
+  .edit-form-container label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1f2937;
+  }
+  
+  .edit-form-container input {
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .edit-form-container small {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .edit-form-container .btn {
+    border-radius: 30px;
+    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+  .project-table-container {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    border-left: 6px solid #1c1f3f;
+  }
+  
+  .project-table-container table thead {
+    background-color: #1c1f3f;
+    color: white;
+    font-size: 15px;
+  }
+  
+  .project-table-container table tbody tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  .project-table-container .btn {
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .project-table-container .btn-info {
+    background-color: #1c1f3f;
+    border: none;
+    color: white;
+  }
+  
+  .project-table-container .btn-info:hover {
+    background-color: #111827;
+  }
+  
+  .project-table-container .btn-warning {
+    background-color: #facc15;
+    border: none;
+    color: #1a1a1a;
+  }
+  
+  .project-table-container .btn-warning:hover {
+    background-color: #eab308;
+    color: white;
+  }
+  
+  .project-table-container .btn-danger {
+    background-color: #ef4444;
+    border: none;
+    color: white;
+  }
+  
+  .project-table-container .btn-danger:hover {
+    background-color: #dc2626;
+  }
+  

@@ -3,10 +3,8 @@ include '../includes/db.php';
 include '../includes/session.php';
 include '../includes/functions.php';
 
-// Étape 1 : vérifier l'utilisateur connecté
 checkLogin();
 
-// Étape 2 : charger les données de l'utilisateur
 $stmt = $pdo->prepare('SELECT username, email, phone, photo, role FROM users WHERE id = ?');
 $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -20,13 +18,13 @@ include '../includes/header.php';
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3 fw-bold">👤 Mon Profil</h1>
-        <a href="../dashboard/dashboard_<?php echo htmlspecialchars($_SESSION['role']); ?>.php" class="btn btn-outline-secondary">← Retour au Dashboard</a>
+        <h1 class="fw-bold">👤 Mon Profil</h1>
+        <a href="../dashboard/dashboard_<?php echo htmlspecialchars($_SESSION['role']); ?>.php" class="btn btn-outline-dark">← Retour au Dashboard</a>
     </div>
 
-    <div class="card shadow-sm border-0 mb-4">
-        <div class="card-header bg-gradient bg-primary text-white">
-            <h5 class="mb-0">📌 Informations Personnelles</h5>
+    <div class="card shadow-sm border-0 profile-card mb-4">
+        <div class="card-header">
+            📌 Informations Personnelles
         </div>
         <div class="card-body">
 
@@ -47,7 +45,7 @@ include '../includes/header.php';
         </div>
     </div>
 
-    <div class="row g-3">
+    <div class="row g-3 profile-actions">
         <div class="col-md-6">
             <a href="edit_profile.php" class="btn btn-primary w-100">✏️ Modifier Mon Profil</a>
         </div>

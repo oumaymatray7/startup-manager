@@ -11,44 +11,48 @@ if (session_status() == PHP_SESSION_NONE) {
     <title>StartUp Manager</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Ton propre fichier CSS si besoin -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Thème personnalisé inspiré de CoManage -->
+    <link rel="stylesheet" href="../assets/css/theme-comanage.css">
+
+    <!-- Optionnel : favicon -->
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
 </head>
-<body class="bg-light">
+<body>
 
-<!-- Navbar commune -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<!-- Barre de navigation supérieure -->
+<nav class="navbar navbar-expand-lg" style="background-color: #1c1f3f;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="../dashboard/dashboard_admin.php">StartUp Manager</a>
+        <a class="navbar-brand text-white fw-bold" href="../dashboard/dashboard_admin.php">StartUp Manager</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav align-items-center">
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="../employee_management/list.php">Employés</a>
+                        <a class="nav-link text-white" href="../employee_management/list.php"> Employés</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../project_management/list.php">Projets</a>
+                        <a class="nav-link text-white" href="../project_management/list.php"> Projets</a>
                     </li>
                 <?php endif; ?>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="../account_management/profile.php">Mon Compte</a>
+                    <a class="nav-link text-white" href="../account_management/profile.php"> Mon Compte</a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="btn btn-outline-light ms-2" href="../auth/logout.php">Déconnexion</a>
+                    <a class="btn btn-outline-light ms-3" href="../auth/logout.php"> Déconnexion</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- Début du Contenu principal -->
+<!-- Contenu principal -->
 <div class="container mt-5">
